@@ -20,11 +20,11 @@ namespace LampPuzzle
             {
 
                 Console.WriteLine($"You have {presses_left} turns left");
-                Console.WriteLine("");
+                Console.WriteLine(lamps);
 
+                int input = int.Parse(Console.ReadLine()); //try adding tryparse
 
-
-
+                lamps = ButtonPress(input-1,lamps);
 
 
                 presses_left -= 1;
@@ -43,12 +43,12 @@ namespace LampPuzzle
 
             else
             {
-                if ((lamps & (LampStates) (1 << (button-1)))
-                    != (lamps & (LampStates) (1 << button)))
+                if ((lamps & (LampStates)(1 << (button - 1)))
+                    != (lamps & (LampStates)(1 << button)))
                 {
-                    lamps ^= (LampStates) (1 << (button-1));
-                    lamps ^= (LampStates) (1 << button);
-                    Console.WriteLine("Lamps "+ button +" and "+ (button+1) +
+                    lamps ^= (LampStates)(1 << (button - 1));
+                    lamps ^= (LampStates)(1 << button);
+                    Console.WriteLine("Lamps " + button + " and " + (button + 1) +
                                       " switched states!");
                 }
 
