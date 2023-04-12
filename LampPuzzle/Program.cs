@@ -9,9 +9,8 @@ namespace LampPuzzle
             Console.WriteLine("");
         }
 
-        static LampStates ButtonPress(int button)
+        static LampStates ButtonPress(int button, LampStates lamps)
         {
-            LampStates lamps = 0;
 
             if (button == 1)
             {
