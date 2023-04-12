@@ -1,7 +1,7 @@
 using System;
 
 [Flags]
-enum Lampstate
+enum LampStates
 {
     lamp1 = 1 << 0,
     lamp2 = 1 << 1,
