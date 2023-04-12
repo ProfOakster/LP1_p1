@@ -6,37 +6,26 @@ namespace LampPuzzle
     {
         static void Main(string[] args)
         {
-            LampStates[] lamps = InitArray();
+            LampStates lamps = 0;
             
             Console.WriteLine("");
         }
-
-
-        static LampStates[] InitArray()
-        {
-            int lampAmount = Enum.GetNames(typeof(LampStates)).Length;
-            
-            LampStates[] lamps = new LampStates[lampAmount];
-            return lamps;
-        }
-
-
-        static LampStates[] ButtonPress(int button, LampStates[] lamps)
+        static LampStates ButtonPress(int button, LampStates lamps)
         {
 
             if (button == 0)
             {
-                lamps[0] ^= LampStates.lamp1;
-                Console.WriteLine("The first lamp turned on!");
+                lamps ^= LampStates.lamp1;
+                Console.WriteLine("The first lamp toggled!");
             }
 
             else
             {
-                if ((lamps[button-1] & LampStates.lamp1)
-                    != (lamps[button] & LampStates.lamp1))
+                if ((lamps & (LampStates) (1 << (button-1)))
+                    != (lamps & (LampStates) (1 << button)))
                 {
-                    lamps[button-1] ^= LampStates.lamp1;
-                    lamps[button] ^= LampStates.lamp2;
+                    lamps ^= (LampStates) (1 << (button-1));
+                    lamps ^= (LampStates) (1 << button);
                     Console.WriteLine("Lamps "+ button +" and "+ (button+1) +
                                       " switched states!");
                 }
