@@ -6,25 +6,39 @@ namespace LampPuzzle
     {
         static void Main(string[] args)
         {
+            LampStates[] lamps = InitArray();
+            
             Console.WriteLine("");
         }
 
-        static LampStates ButtonPress(int button, LampStates lamps)
+
+        static LampStates[] InitArray()
+        {
+            int lampAmount = Enum.GetNames(typeof(LampStates)).Length;
+            
+            LampStates[] lamps = new LampStates[lampAmount];
+            return lamps;
+        }
+
+
+        static LampStates[] ButtonPress(int button, LampStates[] lamps)
         {
 
-            if (button == 1)
+            if (button == 0)
             {
-                lamps ^= LampStates.lamp1;
+                lamps[0] ^= LampStates.lamp1;
                 Console.WriteLine("The first lamp turned on!");
             }
 
-            else if (button == 2)
+            else
             {
-                if ((lamps & LampStates.lamp1) != (lamps & LampStates.lamp1))
+                if ((lamps[button-1] & LampStates.lamp1)
+                    != (lamps[button] & LampStates.lamp1))
                 {
-                    lamps ^= LampStates.lamp1;
-                    lamps ^= LampStates.lamp2;
-                    Console.WriteLine("Lamps 1 and 2 switched states!");
+                    lamps[button-1] ^= LampStates.lamp1;
+                    lamps[button] ^= LampStates.lamp2;
+                    Console.WriteLine("Lamps "+ button +" and "+ (button+1) +
+                                      " switched states!");
                 }
 
                 else
@@ -32,22 +46,6 @@ namespace LampPuzzle
                     Console.WriteLine("Nothing happened!");
                 }
             }
-            
-            else if (button == 3)
-            {
-                if ((lamps & LampStates.lamp1) != (lamps & LampStates.lamp1))
-                {
-                    lamps ^= LampStates.lamp2;
-                    lamps ^= LampStates.lamp3;
-                    Console.WriteLine("Lamps 2 and 3 switched states!");
-                }
-
-                else
-                {
-                    Console.WriteLine("Nothing happened!");
-                }
-            }
-
             return lamps;
         }
     }
