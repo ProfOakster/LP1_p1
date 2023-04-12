@@ -16,6 +16,7 @@ namespace LampPuzzle
 
             Console.WriteLine($"Light all lamps in {presses_left} moves!");
 
+            bool win = false;
             while (presses_left > 0)
             {
 
@@ -24,10 +25,27 @@ namespace LampPuzzle
 
                 int input = int.Parse(Console.ReadLine()); //try adding tryparse
 
-                lamps = ButtonPress(input-1,lamps);
+                lamps = ButtonPress(input - 1, lamps);
+
 
 
                 presses_left -= 1;
+
+                if (CheckWin(lamps))
+                {
+                    win = true;
+                    break;
+                }
+            }
+
+            if (win)
+            {
+                Console.WriteLine($"You won with {presses_left} turns left!");
+            }
+            else
+            {
+                Console.WriteLine("No turns left");
+                Console.WriteLine("GAME OVER");
             }
 
 
@@ -68,7 +86,7 @@ namespace LampPuzzle
             {
                 LampStates lampCheck = lamps & (LampStates)(1 << i);
 
-                if (lampCheck != (LampStates) (1 << i))
+                if (lampCheck != (LampStates)(1 << i))
                 {
                     win = false;
                 }
