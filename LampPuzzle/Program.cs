@@ -6,9 +6,11 @@ namespace LampPuzzle
     {
         static void Main(string[] args)
         {
-
-            int presses_left = 6;
             LampStates lamps = 0;
+            int lamps_num = Enum.GetNames(typeof(LampStates)).Length;
+            int buttons_num = lamps_num;
+            int presses_left = 6;
+
             Console.WriteLine("");
             Console.WriteLine("LAMP PUZZLE");
             Console.WriteLine("First button toggles first lamp");
@@ -23,9 +25,23 @@ namespace LampPuzzle
                 Console.WriteLine($"You have {presses_left} turns left");
                 Console.WriteLine(lamps);
 
-                int input = int.Parse(Console.ReadLine()); //try adding tryparse
+                bool invalid_input = true;
+                int selection = 0;
+                do
+                {
+                    if (int.TryParse(Console.ReadLine(), out int input) &
+                    (0 < input) & (input <= buttons_num))
+                    {
+                        invalid_input = false;
+                        selection = input-1;
+                    }
+                    else
+                        Console.WriteLine("Invalid input");
 
-                lamps = ButtonPress(input - 1, lamps);
+                } while (invalid_input);
+
+
+                lamps = ButtonPress(selection, lamps);
 
 
 
