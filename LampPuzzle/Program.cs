@@ -59,5 +59,22 @@ namespace LampPuzzle
             }
             return lamps;
         }
+
+        static bool CheckWin(LampStates lamps)
+        {
+            bool win = true;
+
+            for (int i = 0; i < Enum.GetNames(typeof(LampStates)).Length; i++)
+            {
+                LampStates lampCheck = lamps & (LampStates)(1 << i);
+
+                if (lampCheck != (LampStates) (1 << i))
+                {
+                    win = false;
+                }
+            }
+
+            return win;
+        }
     }
 }
