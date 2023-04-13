@@ -2,6 +2,9 @@
 
 namespace LampPuzzle
 {
+    /// <summary>
+    /// Contains the Main code, along with ButtonPress and CheckWin methods.
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
@@ -66,6 +69,16 @@ namespace LampPuzzle
 
 
         }
+        /// <summary>
+        /// Recieves the number of the button pressed and the variable 
+        /// containing the lamp states, executing the button's action and
+        /// updating the variable.
+        /// </summary>
+        /// <param name="button">Number of the button pressed
+        /// ( The first button is '0' )</param>
+        /// <param name="lamps">The variable containing the lamp states</param>
+        /// <returns>An updated LampStates variable after the button's
+        /// effect on it. </returns>
         static LampStates ButtonPress(int button, LampStates lamps)
         {
 
@@ -94,6 +107,13 @@ namespace LampPuzzle
             return lamps;
         }
 
+        /// <summary>
+        /// Recieves the variable containing the lamp states and checks if
+        /// any of them is turned off.
+        /// </summary>
+        /// <param name="lamps"></param>
+        /// <returns>True if all lamps are on;
+        /// False if at least one lamp is off.</returns>
         static bool CheckWin(LampStates lamps)
         {
             bool win = true;
