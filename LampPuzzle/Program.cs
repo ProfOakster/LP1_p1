@@ -82,28 +82,37 @@ namespace LampPuzzle
         static LampStates ButtonPress(int button, LampStates lamps)
         {
 
+            /// Checks if the first button was pressed
             if (button == 0)
             {
+                ///Toggles the state of the first lamp, and prints feedback.
                 lamps ^= LampStates.lamp1;
                 Console.WriteLine("The first lamp toggled!");
             }
 
+            /// For every button other than the first:
             else
             {
+                /// Checks if the lamp next to the button and the one before it
+                /// have different states (if one is off and the other is on)
                 if ((lamps & (LampStates)(1 << (button - 1)))
                     != (lamps & (LampStates)(1 << button)))
                 {
+                    ///Toggles both lamps and prints feedback to the console.
                     lamps ^= (LampStates)(1 << (button - 1));
                     lamps ^= (LampStates)(1 << button);
                     Console.WriteLine($"Lamps {button} and {button + 1}"+
                                       " switched states!");
                 }
 
+                /// If the two lamps have the same state, nothing changes and
+                /// feedback is printed to the console.
                 else
                 {
                     Console.WriteLine("Nothing happened!");
                 }
             }
+            /// Returns an updated LampState variable.
             return lamps;
         }
 
@@ -116,18 +125,25 @@ namespace LampPuzzle
         /// False if at least one lamp is off.</returns>
         static bool CheckWin(LampStates lamps)
         {
+            /// Initializes a bool set to True, to be returned.
             bool win = true;
 
+            /// Checks every individual lamp on the variable given.
             for (int i = 0; i < Enum.GetNames(typeof(LampStates)).Length; i++)
             {
+                /// Initializes a second LampStates variable that checks if the
+                /// given variable has the lamp turned on.
                 LampStates lampCheck = lamps & (LampStates)(1 << i);
 
+                // If any lamp isn't on, changes the bool to False.
                 if (lampCheck != (LampStates)(1 << i))
                 {
                     win = false;
                 }
             }
 
+            /// Returns the bool. If all lamps are on, returns true. Else,
+            /// if at least one lamp is off, returns false.
             return win;
         }
     }
