@@ -1,11 +1,14 @@
 ﻿using System;
-
+using System.Text;
 namespace LampPuzzle
 {
     class Program
     {
         static void Main(string[] args)
         {
+
+            Console.OutputEncoding = Encoding.UTF8;
+
             LampStates lamps = 0;
             int lamps_num = Enum.GetNames(typeof(LampStates)).Length;
             int buttons_num = lamps_num;
@@ -17,44 +20,55 @@ namespace LampPuzzle
             Console.WriteLine("others swap state of its lamp and its previous one");
 
             Console.WriteLine($"Light all lamps in {presses_left} moves!");
+            DisplayLamps(lamps, lamps_num);
 
-            bool win = false;
             while (presses_left > 0)
             {
 
                 Console.WriteLine($"You have {presses_left} turns left");
-                Console.WriteLine(lamps);
+
+
+
 
                 bool invalid_input = true;
                 int selection = 0;
                 do
                 {
-                    if (int.TryParse(Console.ReadLine(), out int input) &
-                    (0 < input) & (input <= buttons_num))
+                    string input = Console.ReadLine();
+                    if (int.TryParse(input, out int int_input) &&
+                    (0 < int_input) && (int_input <= buttons_num))
                     {
                         invalid_input = false;
-                        selection = input-1;
+                        selection = int_input - 1;
+                    }
+                    else if (input == "q")
+                    {
+                        selection = -1;
+                        break;
                     }
                     else
-                        Console.WriteLine("Invalid input");
+                        Console.WriteLine("Invalid input!");
 
                 } while (invalid_input);
 
+                if (selection == -1)
+                {
+                    Console.WriteLine("You give up.");
+                    break;
+                }
 
                 lamps = ButtonPress(selection, lamps);
 
-
+                DisplayLamps(lamps, lamps_num);
 
                 presses_left -= 1;
 
                 if (CheckWin(lamps))
-                {
-                    win = true;
                     break;
-                }
+
             }
 
-            if (win)
+            if (CheckWin(lamps))
             {
                 Console.WriteLine($"You won with {presses_left} turns left!");
             }
@@ -110,5 +124,26 @@ namespace LampPuzzle
 
             return win;
         }
+
+        static void DisplayLamps(LampStates lamps, int lamps_num)
+        {
+            ConsoleColor reset = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            for (int i = 1; i <= lamps_num; i++)
+            {
+                char lamp;
+                if ((lamps & (LampStates)(1 << i - 1)) == (LampStates)(1 << i - 1))
+                    lamp = '\u25CF';
+                else
+                    lamp = '\u25CB';
+                Console.WriteLine("Lamp{0,1} {1,-3}{2}", i, "-", lamp);
+            }
+            Console.ForegroundColor = reset;
+
+        }
+
+
+
     }
 }
