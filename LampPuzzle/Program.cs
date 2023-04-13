@@ -82,7 +82,7 @@ namespace LampPuzzle
                 {
                     lamps ^= (LampStates)(1 << (button - 1));
                     lamps ^= (LampStates)(1 << button);
-                    Console.WriteLine("Lamps " + button + " and " + (button + 1) +
+                    Console.WriteLine($"Lamps {button} and {button + 1}"+
                                       " switched states!");
                 }
 
