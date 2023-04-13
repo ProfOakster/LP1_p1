@@ -37,9 +37,7 @@ Contém a enumeração LampStates, que define os valores de cada lâmpada usando shi
 Contém três métodos:
 
     - `Main()`: Define as variáveis a usar, como o número de botões e turnos de jogo, e contém as instruções de uso (mostradas na consola), bem como o Main Loop, que usa os restantes métodos e repete-se até o utilizador ficar sem turnos restantes;
-    
     - `ButtonPress()`: Recebe o botão carregado e a variável que contém o estado de todas as lâmpadas, e retorna a variável atualizada após o efeito do botão;
-    
     - `CheckWin()`: Recebe a variável com o estado das lâmpadas e verifica-as uma a uma. Se pelo menos uma estiver desligada, retorna `false`, mas em caso contrário, retorna `true`.
 
 Abaixo encontra-se um fluxograma que representa o funcionamento do código do início ao fim:
