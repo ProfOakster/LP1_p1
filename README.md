@@ -18,10 +18,12 @@ João Correia nº 22202506
 
 
 **Repositório usado:**
+
 https://github.com/ProfOakster/LP1_p1
 
 
 **Arquiquetura da Solução:**
+
 Este projeto atribui ao utilizador um certo número de lampadas e botões, bem como um número limitado de turnos. O objetivo é utilizar os botões e as suas funcionalidades para ligar todas as lâmpadas, um botão por turno, antes de ficar sem turnos.
 O exercício está dividido em dois ficheiros:
 
@@ -39,4 +41,5 @@ Abaixo encontra-se um fluxograma que representa o funcionamento do código do iní
 
 
 **Referências:**
-Foram usados como referência os PowerPoints disponibilizados pelo professor Nuno Fachada em LP1, bem como o exercício "PlayerPerks", para a implementação e o funcionamento do método ButtonPress().
+
+Foram usados como referência os PowerPoints disponibilizados pelo professor Nuno Fachada em LP1, bem como o exercício "PlayerPerks", para a implementação e o funcionamento do método `ButtonPress()`.
