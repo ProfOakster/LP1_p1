@@ -34,10 +34,11 @@ O exercício está dividido em dois ficheiros:
 
 2. **Program.cs**
 
-    Contém três métodos:
+    Contém quatro métodos:
     - `Main()`: Define as variáveis a usar, como o número de botões e turnos de jogo, e contém as instruções de uso (mostradas na consola), bem como o Main Loop, que usa os restantes métodos e repete-se até o utilizador ficar sem turnos restantes;
     - `ButtonPress()`: Recebe o botão carregado e a variável que contém o estado de todas as lâmpadas, e retorna a variável atualizada após o efeito do botão;
     - `CheckWin()`: Recebe a variável com o estado das lâmpadas e verifica-as uma a uma. Se pelo menos uma estiver desligada, retorna `false`, mas em caso contrário, retorna `true`.
+    - `DisplayLamps()`: Recebe a variável com o estado das lâmpadas e o número de lâmpadas, e mostra na consola a amarelo o estado de cada uma. Lâmpadas acesas são representadas com um circulo cheio, e lâmpadas apagadas com um circulo vazio.
 
 Abaixo encontra-se um fluxograma que representa o funcionamento do código do início ao fim:
 ![Fluxograma do código](PLACEHOLDER.jpg)
