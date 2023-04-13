@@ -1,5 +1,8 @@
 using System;
-
+/// <summary>
+/// Contains all lamps and their respective binary values. 
+/// 0 means all lamps are off.
+/// </summary>
 [Flags]
 enum LampStates
 {
