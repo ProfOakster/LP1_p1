@@ -68,8 +68,9 @@ namespace LampPuzzle
                     }
                     else if (input == "q")
                     {
+                        invalid_input = false;
                         selection = -1;
-                        break;
+                        
                     }
                     else
                         Console.WriteLine("Invalid input!");
