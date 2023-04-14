@@ -43,7 +43,7 @@ O exercício está dividido em dois ficheiros:
     - `DisplayLamps()`: Recebe a variável com o estado das lâmpadas e o número de lâmpadas, e mostra na consola a amarelo o estado de cada uma. Lâmpadas acesas são representadas com um circulo cheio, e lâmpadas apagadas com um circulo vazio.
 
 Abaixo encontra-se um fluxograma que representa o funcionamento do código do início ao fim:
-![Fluxograma do código](PLACEHOLDER.jpg)
+![Fluxograma do código](LampPuzzleDiagram.png)
 
 
 **Referências:**
