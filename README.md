@@ -4,13 +4,15 @@
 
 Tomás Carvalho nº 22203333
 
-- Escreveu o código no `Main()` (incluindo o Main Loop);
-- Implementou a visualisação na consola das instruções e outros feedbacks do puzzle;
+- Escreveu o código no `Main()` (incluindo o Main Loop) e o método `DisplayLamps()`;
+- Tratou da visualização na consola das instruções e do feedback do puzzle;
+- Fez o fluxograma do funcionamento do código;
 - Definiu o sistema de Game Over (Win & Loss);
 
 João Correia nº 22202506
 
-- Implementou as funções a usar no Main Loop ( `ButtonPress()` e `CheckWin()` )
+- Implementou as funções `ButtonPress()` e `CheckWin()`;
+- Tratou do funcionamento dos botões e das lâmpadas;
 - Definiu a enumeração LampStates;
 - Escreveu a documentação README.md;
 
